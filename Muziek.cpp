@@ -1,8 +1,10 @@
-#define metrocore
-//#define sound1core
+//#define metrocore
+#define sound1core
 //#define sound2core
 
-#define TETRIS_THEME_A
+//#define VADER_JACOB
+#define BOER_WAT_ZEG_JE
+//#define TETRIS_THEME_A
 
 #include <avr/io.h>
 #include <avr/interrupt.h>

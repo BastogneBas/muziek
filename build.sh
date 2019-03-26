@@ -7,6 +7,15 @@ mkdir -p build-uno
 
 
 function ccF {
+avr-gcc -MMD -c -D__PROG_TYPES_COMPAT__ -save-temps=obj -mmcu=atmega328p -DF_CPU=8000000L -DARDUINO=188 -DARDUINO_ARCH_AVR -Os -Wall -std=gnu11 -fdiagnostics-color=always $LIBS $1 -o $BUILDFOLDER/$2.o
+ret=$?
+if [ $ret -ne 0 ]
+then
+	exit $ret;
+fi
+}
+
+function ccppF {
 avr-gcc -MMD -c -D__PROG_TYPES_COMPAT__ -save-temps=obj -mmcu=atmega328p -DF_CPU=8000000L -DARDUINO=188 -DARDUINO_ARCH_AVR -Os -Wall -std=gnu++11 -fdiagnostics-color=always $LIBS $1 -o $BUILDFOLDER/$2.o
 ret=$?
 if [ $ret -ne 0 ]
@@ -15,7 +24,7 @@ then
 fi
 }
 
-ccF $NAME $NAME
+ccppF $NAME $NAME
 mkdir $BUILDFOLDER/core
 ccF /home/bas/arduino/hardware/arduino/avr/cores/arduino/wiring.c core/wiring.c
 ccF /home/bas/arduino/hardware/arduino/avr/cores/arduino/wiring_digital.c core/wiring_digital.c
@@ -23,7 +32,7 @@ ccF /home/bas/arduino/hardware/arduino/avr/cores/arduino/WInterrupts.c core/WInt
 ccF /home/bas/arduino/hardware/arduino/avr/cores/arduino/hooks.c core/hooks.c
 ccF /home/bas/arduino/hardware/arduino/avr/cores/arduino/wiring_pulse.c core/wiring_pulse.c
 
-ccF /home/bas/arduino/hardware/arduino/avr/cores/arduino/Tone.cpp core/Tone.cpp
+ccppF /home/bas/arduino/hardware/arduino/avr/cores/arduino/Tone.cpp core/Tone.cpp
 
 avr-gcc -mmcu=atmega328p -Wl,--gc-sections -Os -fuse-linker-plugin -o $BUILDFOLDER/$PROJNAME.elf\
    	$BUILDFOLDER/$NAME.o \
