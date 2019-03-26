@@ -3,8 +3,9 @@
 //#define sound2core
 
 //#define VADER_JACOB
-#define BOER_WAT_ZEG_JE
-//#define TETRIS_THEME_A
+//#define BOER_WAT_ZEG_JE
+//#define MEGALOVANIA
+#define TETRIS_THEME_A
 
 #include <avr/io.h>
 #include <avr/interrupt.h>
