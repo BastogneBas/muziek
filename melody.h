@@ -14,3 +14,12 @@ typedef struct {int note; char units; } a_tone;
 #ifdef TETRIS_THEME_A
 #include "melodies/tetris_theme_a.h"
 #endif
+#ifdef CRAB_RAVE
+#include "melodies/Crab_Rave.h"
+#endif
+#ifdef TAKE_ON_ME
+#include "melodies/Take_On_Me.h"
+#endif
+#ifdef WITCHCRAFT
+#include "melodies/Witchcraft.h"
+#endif

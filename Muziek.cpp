@@ -1,11 +1,14 @@
-//#define metrocore
-#define sound1core
+#define metrocore
+//#define sound1core
 //#define sound2core
 
 //#define VADER_JACOB
 //#define BOER_WAT_ZEG_JE
 //#define MEGALOVANIA
-#define TETRIS_THEME_A
+//#define TETRIS_THEME_A
+//#define CRAB_RAVE
+#define TAKE_ON_ME
+//#define WITCHCRAFT
 
 #include <avr/io.h>
 #include <avr/interrupt.h>
